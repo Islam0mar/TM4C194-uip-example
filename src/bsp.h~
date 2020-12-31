@@ -1,0 +1,15 @@
+/*
+ * bsp.h
+ *
+ *  Created on: Dec 31, 2020
+ *      Author: islam
+ */
+__attribute__((naked)) void assert_failed(char const *file, int line);
+
+#ifdef BSP_NASSERT /* Q_NASSERT defined--assertion checking disabled */
+    /* provide dummy (empty) definitions that don't generate any code... */
+    #define BSP_ASSERT(test_)             ((void)0)
+#else
+    #define BSP_ASSERT(test_) ((test_) \
+        ? (void)0 : assert_failed(__FILE__, __LINE__))
+#endif
