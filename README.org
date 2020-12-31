@@ -1,0 +1,16 @@
+* TM4C194-lwip-example:
+
+
+This is an under construction example for using [lwip](https://github.com/lwip-tcpip/lwip) with [Tiva C Series TM4C1294](https://www.ti.com/tool/SW-EK-TM4C1294XL)
+
+
+** TODO
+
+- [ ] add test
+- [x] freertos basic threads  
+- [ ] lwip basic example
+
+** Copyright
+
+Copyright (c) 2020 Islam Omar (io1131@fayoum.edu.eg)
+
