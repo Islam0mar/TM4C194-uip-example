@@ -11,19 +11,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "FreeRTOS.h"
-#include "driverlib/flash.h"
-#include "driverlib/gpio.h"
-#include "driverlib/interrupt.h"
-#include "driverlib/rom_map.h"
-#include "driverlib/sysctl.h"
-#include "driverlib/systick.h"
-#include "event_groups.h"
-#include "inc/hw_ints.h"
-#include "inc/hw_memmap.h"
-#include "queue.h"
-#include "task.h"
-#include "timers.h"
 
 //*****************************************************************************
 //

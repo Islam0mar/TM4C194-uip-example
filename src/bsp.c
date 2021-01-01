@@ -10,13 +10,20 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "FreeRTOS.h"
 #include "driverlib/rom_map.h"
-#include "gpio.h"
+#include "driverlib/gpio.h"
 #include "inc/hw_memmap.h"
-#include "interrupt.h"
-#include "pin_map.h"
-#include "sysctl.h"
+#include "driverlib/interrupt.h"
+#include "driverlib/pin_map.h"
+#include "driverlib/sysctl.h"
+#include "driverlib/flash.h"
+#include "driverlib/gpio.h"
+#include "driverlib/interrupt.h"
+#include "driverlib/rom_map.h"
+#include "driverlib/sysctl.h"
+#include "driverlib/systick.h"
+#include "inc/hw_ints.h"
+#include "inc/hw_memmap.h"
 
 
 void __error__(char *pcFilename, uint32_t ui32Line) {
