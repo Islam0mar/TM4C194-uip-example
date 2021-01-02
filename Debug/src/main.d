@@ -1,78 +1,37 @@
-src/main.o: ../src/main.c ../src/bsp.h \
+src/main.o: ../src/main.c ../src/config.h ../src/uip-conf.h \
+ ../src/states.h ../src/ring-buffer.h ../src/bsp.h ../src/clock-arch.h \
  /home/islam/code/workspace_v10/demo/driverlib/debug.h \
- ../src/tm4c1294ncpdt.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/FreeRTOS.h \
- /home/islam/code/workspace_v10/demo/src/FreeRTOSConfig.h \
- /home/islam/code/workspace_v10/demo/src/bsp.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/projdefs.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/portable.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/deprecated_definitions.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/mpu_wrappers.h \
- /home/islam/code/workspace_v10/demo/driverlib/flash.h \
- /home/islam/code/workspace_v10/demo/driverlib/gpio.h \
- /home/islam/code/workspace_v10/demo/driverlib/interrupt.h \
- /home/islam/code/workspace_v10/demo/driverlib/rom_map.h \
- /home/islam/code/workspace_v10/demo/driverlib/sysctl.h \
- /home/islam/code/workspace_v10/demo/driverlib/systick.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/event_groups.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/timers.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/task.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/list.h \
- /home/islam/code/workspace_v10/demo/inc/hw_ints.h \
- /home/islam/code/workspace_v10/demo/inc/hw_memmap.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/queue.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/task.h \
- /home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/timers.h
+ /home/islam/code/workspace_v10/demo/inc/hw_types.h ../src/logger.h \
+ /home/islam/code/workspace_v10/demo/third_party/uip/uip/uip.h \
+ /home/islam/code/workspace_v10/demo/third_party/uip/uip/uipopt.h \
+ /home/islam/code/workspace_v10/demo/src/uip-conf.h \
+ /home/islam/code/workspace_v10/demo/third_party/uip/uip/uip_arp.h \
+ /home/islam/code/workspace_v10/demo/third_party/uip/uip/uip.h
+
+../src/config.h:
+
+../src/uip-conf.h:
+
+../src/states.h:
+
+../src/ring-buffer.h:
 
 ../src/bsp.h:
 
+../src/clock-arch.h:
+
 /home/islam/code/workspace_v10/demo/driverlib/debug.h:
 
-../src/tm4c1294ncpdt.h:
+/home/islam/code/workspace_v10/demo/inc/hw_types.h:
 
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/FreeRTOS.h:
+../src/logger.h:
 
-/home/islam/code/workspace_v10/demo/src/FreeRTOSConfig.h:
+/home/islam/code/workspace_v10/demo/third_party/uip/uip/uip.h:
 
-/home/islam/code/workspace_v10/demo/src/bsp.h:
+/home/islam/code/workspace_v10/demo/third_party/uip/uip/uipopt.h:
 
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/projdefs.h:
+/home/islam/code/workspace_v10/demo/src/uip-conf.h:
 
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/portable.h:
+/home/islam/code/workspace_v10/demo/third_party/uip/uip/uip_arp.h:
 
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/deprecated_definitions.h:
-
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h:
-
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/mpu_wrappers.h:
-
-/home/islam/code/workspace_v10/demo/driverlib/flash.h:
-
-/home/islam/code/workspace_v10/demo/driverlib/gpio.h:
-
-/home/islam/code/workspace_v10/demo/driverlib/interrupt.h:
-
-/home/islam/code/workspace_v10/demo/driverlib/rom_map.h:
-
-/home/islam/code/workspace_v10/demo/driverlib/sysctl.h:
-
-/home/islam/code/workspace_v10/demo/driverlib/systick.h:
-
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/event_groups.h:
-
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/timers.h:
-
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/task.h:
-
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/list.h:
-
-/home/islam/code/workspace_v10/demo/inc/hw_ints.h:
-
-/home/islam/code/workspace_v10/demo/inc/hw_memmap.h:
-
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/queue.h:
-
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/task.h:
-
-/home/islam/code/workspace_v10/demo/third_party/FreeRTOSv202012.00/FreeRTOS/Source/include/timers.h:
+/home/islam/code/workspace_v10/demo/third_party/uip/uip/uip.h:

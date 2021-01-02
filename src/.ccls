@@ -1,0 +1,9 @@
+clang
+# %compile_commands.json
+--target=armv7-linux-gnueabi
+-D__ICCARM__
+-U__GNUC__
+-U__clang__
+# %h %hpp
+-I/usr/lib/clang/10.0.0/include
+-I/home/islam/code/workspace_v10/demo

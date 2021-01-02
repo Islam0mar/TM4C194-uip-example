@@ -113,17 +113,7 @@ PDE_DEPS__QUOTED :=
 SUBDIRS := \
 . \
 driverlib \
-ports/tiva-tm4c129/netif \
-ports/tiva-tm4c129 \
 src \
-third_party/FreeRTOSv202012.00/FreeRTOS/Source \
-third_party/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F \
-third_party/lwip/src/api \
-third_party/lwip/src/apps/altcp_tls \
-third_party/lwip/src/core \
-third_party/lwip/src/core/ipv4 \
-third_party/lwip/src/core/ipv6 \
-third_party/lwip/src/netif \
-third_party/lwip/src/netif/ppp \
-third_party/lwip/src/netif/ppp/polarssl \
+third_party/uip/lib \
+third_party/uip/uip \
 

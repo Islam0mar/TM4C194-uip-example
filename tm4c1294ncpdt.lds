@@ -19,6 +19,10 @@ REGION_ALIAS("REGION_STACK", SRAM);
 REGION_ALIAS("REGION_HEAP", SRAM);
 REGION_ALIAS("REGION_ARM_EXIDX", FLASH);
 REGION_ALIAS("REGION_ARM_EXTAB", FLASH);
+/* The size of the stack used by the application. NOTE: you need to adjust  */
+STACK_SIZE = 1024;
+/* The size of the heap used by the application. NOTE: you need to adjust   */
+HEAP_SIZE = 0;
 
 SECTIONS {
 
@@ -84,7 +88,8 @@ SECTIONS {
         _stack = .;
         __stack_start__ = .;
         __stack = .;
-        KEEP(*(.stack))
+        . = . + STACK_SIZE;
+        . = ALIGN(4);
         __stack_end__ = .;
     } > REGION_STACK
 
@@ -103,7 +108,8 @@ SECTIONS {
         end = __heap_start__;
         _end = end;
         __end = end;
-        KEEP(*(.heap))
+        . = . + HEAP_SIZE;
+        . = ALIGN(4);
         __heap_end__ = .;
         __HeapLimit = __heap_end__;
     } > REGION_HEAP
