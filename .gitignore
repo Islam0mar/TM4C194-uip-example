@@ -11,6 +11,7 @@ debug.txt
 *.class
 bin
 /lib
+Debug/
 *.out
 .ccls-cache
 pod-build
