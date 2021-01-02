@@ -26,9 +26,10 @@ typedef enum {
 } Signals_t;
 
 typedef enum {
+  kNone = 0,
   kIdle,
   kWaitForAck,
-  kAborted,
+  kWaitingForConnection,
   kSendingLargeData,
   kDhcpWaitForOffer,
   kDhcpWaitForAck
@@ -38,7 +39,6 @@ typedef struct {
   MainStates_t state;
   uint16_t *data_ptr;
   uint16_t data_left_size;
-  uint8_t count;
 } AppState_t;
 
 #endif /* SRC_STATES_H_ */

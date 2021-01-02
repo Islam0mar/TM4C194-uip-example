@@ -72,6 +72,8 @@ int main(void) {
   uip_setnetmask(sIPAddr);
 
   /* Main Application Loop. */
+  AppState_t *s = (AppState_t *)&(uip_conn->appstate);
+  s->state = kWaitingForConnection;
   uip_listen(HTONS(80));
   ui32ARPTimer = ui32PeriodicTimer = BspGetMSecTime();
   while (true) {
@@ -166,6 +168,7 @@ int main(void) {
 void AppCall(void) {
   static uint8_t local_buff[sizeof(uip_buf) / sizeof(uip_buf[0])];
   static uint16_t local_buff_len;
+  static uint8_t poll_count;
   static AppState_t *s;
   s = (AppState_t *)&(uip_conn->appstate);
   if (uip_newdata() && s->state == kIdle) {
@@ -180,28 +183,30 @@ void AppCall(void) {
   } else if (uip_acked() && s->state == kWaitForAck) {
     HWREGBITW(&g_ui32Flags, kAck) = 1;
     s->state = kIdle;
-  } else if (uip_rexmit() && s->state == kIdle) {
+  } else if (uip_rexmit() && s->state == kWaitForAck) {
     uip_send(local_buff, local_buff_len);
     s->state = kWaitForAck;
-  } else if (uip_connected()) {
+  } else if (uip_connected() && s->state == kWaitingForConnection) {
     s->state = kIdle;
     uip_send("Hello, World", 12);
-  } else if (uip_poll()) {
+    poll_count = 0;
+  } else if (uip_poll() && s->state == kIdle) {
     // If we are polled more than ten times, we abort the connection
     // . This is
     // because we don't want connections lingering indefinately in
     // the system.
-    if (s->count++ > 10) {
+    if (poll_count++ > 10) {
       uip_abort();
     }
     return;
-  }
-
-  if (uip_timedout()) {
+  } else if (uip_timedout() && s->state != kNone) {
     HWREGBITW(&g_ui32Flags, kTimeOut) = 1;
-  }
-  if (uip_aborted()) {
+    s->state = kWaitingForConnection;
+  } else if (uip_aborted() && s->state != kNone) {
     HWREGBITW(&g_ui32Flags, kAbort) = 1;
+    s->state = kWaitingForConnection;
+  } else if (uip_closed() && s->state != kNone) {
+    s->state = kNone;
   }
 }
 

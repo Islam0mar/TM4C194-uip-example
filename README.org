@@ -1,16 +1,42 @@
 * TM4C194-lwip-example:
 
 
-This is an under construction example for using [[https://github.com/lwip-tcpip/lwip][lwip]] with [[https://www.ti.com/tool/SW-EK-TM4C1294XL][Tiva C Series TM4C1294]]
+This is an example for using [[https://github.com/adamdunkels/uip][]uip]] with [[https://www.ti.com/tool/SW-EK-TM4C1294XL][Tiva C Series TM4C1294]]
+
+** State diagram
+   
+[[file:output.png]]
 
 
 ** TODO
 
-- TODO add test
-- *DONE freertos basic threads  
-- TODO lwip basic example
-#+BEGIN_COMMENT
-** Copyright
++ add unit test
++ examine with HW
++ complete dhcp protocol
++ add sliding window mechanism.
 
-Copyright (c) 2020 Islam Omar (io1131@fayoum.edu.eg)
-#+END_COMMENT
+#+begin_comment
+#+begin_src mermaid :background-color transparent :file output.png
+  stateDiagram
+     [*] --> WaitingForConnection : start
+     WaitingForConnection --> Idle : connected()\nsend("Hello, World", 12)\npoll_count = 0
+     Idle --> WaitForAck : newdata()\nsend(recieved_buffer)
+     WaitForAck --> Idle : acked()
+     WaitForAck --> Idle : acked()
+     WaitForAck --> WaitForAck : rexmit()\nsend(old_buffer)
+     WaitForAck --> WaitingForConnection : aborted()
+     Idle --> WaitingForConnection : aborted()
+     Idle --> Idle : poll()\npoll_count++ 
+     Idle --> WaitingForConnection : poll_count > 10 
+     Idle --> WaitingForConnection : timedout() 
+     WaitForAck --> WaitingForConnection : timedout() 
+     Idle --> [*] : closed() 
+     WaitForAck --> [*] : closed()
+     WaitingForConnection --> [*] : closed() 
+#+end_src
+
+#+RESULTS:
+#+end_comment
+
+** Copyright
+ Copyright (c) 2020 Islam Omar (io1131@fayoum.edu.eg)
