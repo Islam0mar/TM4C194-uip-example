@@ -1,15 +1,16 @@
 * TM4C194-lwip-example:
 
 
-This is an example for using [[https://github.com/adamdunkels/uip][]uip]] with [[https://www.ti.com/tool/SW-EK-TM4C1294XL][Tiva C Series TM4C1294]]
+This is an example for using [[https://github.com/adamdunkels/uip][uip]] with [[https://www.ti.com/tool/SW-EK-TM4C1294XL][Tiva C Series TM4C1294]]
 
 ** State diagram
    
 [[file:output.png]]
 
 
-** TODO
 
+
+** TODO:
 + add unit test
 + examine with HW
 + complete dhcp protocol
